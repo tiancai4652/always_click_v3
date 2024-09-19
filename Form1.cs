@@ -25,6 +25,8 @@ namespace App_csharp
             reg_hotkey();                            // 注册热键
 
             dd = new CDD();
+
+            LoadDll();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -68,21 +70,16 @@ namespace App_csharp
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LoadDll()
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "DD|*.DLL";
 
-            if (ofd.ShowDialog() != DialogResult.OK)
-            {
-                return;
-            }
+            string path = System.Windows.Forms.Application.StartupPath + "\\dd43390.dll";
 
             //'x86 -> * 32.dll
             //'x64 -> *.64.dll
             //'AnyCpu -> Error
             //Maybe not run in vs, make to exe for test.
-            LoadDllFile(ofd.FileName);
+            LoadDllFile(path);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -123,8 +120,6 @@ namespace App_csharp
             label1.Visible = true;
             label2.Visible = true;
 
-            textBox1.Text = dllfile;
-
             return;
         }
 
@@ -145,19 +140,20 @@ namespace App_csharp
 
         void reg_hotkey()
         {
-            RegisterHotKey(this.Handle, 80, 0, Keys.F8);
-            RegisterHotKey(this.Handle, 90, 0, Keys.F9);
+            RegisterHotKey(this.Handle, 800, 0, Keys.F1);
+            RegisterHotKey(this.Handle, 900, 0, Keys.F2);
         }
 
         void unreg_hotkey()
         {
-            UnregisterHotKey(this.Handle, 80);
-            UnregisterHotKey(this.Handle, 90);
+            UnregisterHotKey(this.Handle, 800);
+            UnregisterHotKey(this.Handle, 900);
         }
 
         protected override void WndProc(ref Message m)
         {
-            const int WM_HOTKEY = 0x0312;                      
+            const int WM_HOTKEY = 0x0312;
+            //Console.WriteLine($"{m.Msg}");
             switch (m.Msg)
             {
                 case WM_HOTKEY:
@@ -171,19 +167,19 @@ namespace App_csharp
         {
             switch (msg.WParam.ToInt32())
             {
-                case 80:
-                    Fun80();
+                case 800:
+                    Start();
                     break;
-                case 90:
-                    Fun90();                                                        
+                case 900:
+                    Stop();                                                        
                     break;
             }
         }
 
-        private void Fun80()
+        private void Start()
         {
             //dd.str("Keyboard char [A-Za_z] {@$} ");
-
+            //Console.WriteLine("Start;");
             if (button_start.Text == "Start")
             {
                 button_start.Text = "Stop";
@@ -191,9 +187,9 @@ namespace App_csharp
             }
         }
 
-        private void Fun90()
+        private void Stop()
         {
-
+            //Console.WriteLine("Stop;");
             if (button_start.Text != "Start")
             {
                 button_start.Text = "Start";
