@@ -27,6 +27,7 @@ namespace App_csharp
             dd = new CDD();
 
             LoadDll();
+            label3.Text = trackBar1.Value.ToString();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -199,6 +200,11 @@ namespace App_csharp
 
         #endregion
 
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            label3.Text=trackBar1.Value.ToString();
+            timer1.Interval = trackBar1.Value;
+        }
     }
 }
 
