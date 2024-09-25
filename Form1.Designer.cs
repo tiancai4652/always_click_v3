@@ -41,6 +41,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +50,7 @@
             // button_start
             // 
             this.button_start.Location = new System.Drawing.Point(340, 500);
-            this.button_start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_start.Margin = new System.Windows.Forms.Padding(4);
             this.button_start.Name = "button_start";
             this.button_start.Size = new System.Drawing.Size(112, 34);
             this.button_start.TabIndex = 1;
@@ -146,9 +148,9 @@
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Location = new System.Drawing.Point(290, 160);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(224, 303);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
@@ -174,17 +176,39 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "timer_internal";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(574, 247);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(170, 18);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "F1 -> Alawys click";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(574, 294);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(215, 18);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "F2 -> Stop Alawys click";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 642);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button_start);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "DD - C# ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -210,6 +234,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 
